@@ -16,20 +16,26 @@
 
   <body>
     <!-- NAVBAR -->
-    <header class="py-3 border-bottom bg-white">
+    <header class="py-3 border-bottom bg-white fixed-top">
       <div class="container">
         <ul class="nav justify-content-center nav-pills">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">FAQs</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#historia">História</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#pontos-de-destaque"
+              >Pontos de Destaque</a
+            >
+          </li>
         </ul>
       </div>
     </header>
 
     <!-- HERO -->
-    <section class="hero text-white text-center">
+    <section id="home" class="hero text-white text-center">
       <div class="container">
         <p class="display-6">Bem-vindo à</p>
         <h1 class="display-1 fw-bold">ARARIPINA</h1>
@@ -85,7 +91,7 @@
     </section>
 
     <!-- HISTÓRIA -->
-    <section class="py-5 bg-light">
+    <section id="historia" class="py-5 bg-light">
       <div class="container text-center mb-5">
         <p class="text-muted">RAÍZES</p>
         <h2>Nossa História</h2>
@@ -139,7 +145,7 @@
       </div>
     </section>
 
-    <section class="py-5">
+    <section id="pontos-de-destaque" class="py-5">
       <div class="container text-center mb-5">
         <p>Explore</p>
         <h1>Pontos de Destaque</h1>
@@ -198,5 +204,35 @@
         </div>
       </div>
     </section>
+
+    <div>
+      <footer class="py-4 bg-dark text-white text-center">
+        <div class="container d-flex justify-content-evenly flex-wrap m-5">
+          <div>
+            <h5>Como chegar</h5>
+            <p class="mb-1">Araripina, Pernambuco, Brasil — CEP 56280-000</p>
+            <p class="mb-0">Telefone: (87) 99999-9999 | Email:</p>
+          </div>
+          <div>
+            <h5>Navegação</h5>
+            <p class="mb-1">
+              <a href="#home" class="text-white text-decoration-none">Início</a>
+              |
+              <a href="#historia" class="text-white text-decoration-none"
+                >História</a
+              >
+              |
+              <a
+                href="#pontos-de-destaque"
+                class="text-white text-decoration-none"
+                >Pontos de Destaque</a
+              >
+              | <a href="#" class="text-white text-decoration-none">FAQs</a> |
+            </p>
+          </div>
+        </div>
+        <p class="mb-0">© 2024 Araripina. Todos os direitos reservados.</p>
+      </footer>
+    </div>
   </body>
 </html>
