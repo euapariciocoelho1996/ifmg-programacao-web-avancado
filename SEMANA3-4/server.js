@@ -5,7 +5,7 @@ const cors = require("cors");
 // criando servidor express
 const app = express();
 // habilitando CORS e parsing de JSON
-app.use(cors());
+app.use(cors()); // cors é um middleware que permite que o servidor aceite requisições de outros domínios, ou seja, ele habilita o CORS (Cross-Origin Resource Sharing) para permitir que o frontend, que pode estar rodando em um domínio diferente, faça requisições para este backend.
 app.use(express.json());
 
 const db = mysql.createConnection({

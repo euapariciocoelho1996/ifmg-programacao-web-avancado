@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/rota1", (req, res) => {
-  res.sendFile(__dirname + "/rota1.html");
+  res.sendFile(__dirname + "/rota1.html"); // dirname é uma variável global do Node.js que guarda o caminho do diretório atual, ou seja, o caminho onde está o arquivo express.js
 });
 
 // A rota espera um identificador dinâmico chamado "id"
