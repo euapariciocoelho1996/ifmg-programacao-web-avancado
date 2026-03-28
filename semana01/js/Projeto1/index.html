@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biblioteca</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="page-bg"></div>
+
+    <header class="site-header">
+      <div class="header-ornament">❧</div>
+      <h1 class="site-title">Biblioteca</h1>
+      <p class="site-subtitle">Acervo de Obras</p>
+      <div class="header-ornament">❧</div>
+    </header>
+
+    <main class="container">
+
+      <!-- Cadastro -->
+      <section class="card" id="card-cadastro">
+        <h2 class="card-title">
+          <span class="card-title-icon">✦</span> Cadastrar Obra
+        </h2>
+        <div class="form-group">
+          <label for="livro">Título</label>
+          <input type="text" id="livro" placeholder="Nome do livro" class="livro" />
+        </div>
+        <div class="form-group">
+          <label for="autor">Autor</label>
+          <input type="text" id="autor" placeholder="Nome do autor" class="autor" />
+        </div>
+        <div class="form-group">
+          <label for="ano">Ano</label>
+          <input type="number" id="ano" placeholder="Ex: 2023" class="ano" />
+        </div>
+        <button class="btn btn-primary">Cadastrar</button>
+        <div class="feedback-msg" id="feedback"></div>
+      </section>
+
+      <!-- Busca -->
+      <section class="card" id="card-busca">
+        <h2 class="card-title">
+          <span class="card-title-icon">✦</span> Buscar no Acervo
+        </h2>
+        <div class="search-row">
+          <div class="form-group" style="flex:1">
+            <label for="filtro">Buscar por</label>
+            <input type="text" id="filtro" placeholder="Digite para buscar..." class="filtro" />
+          </div>
+          <div class="form-group select-wrap">
+            <label for="tipoBusca">Campo</label>
+            <select id="tipoBusca" class="busca">
+              <option value="livro">Título</option>
+              <option value="autor">Autor</option>
+              <option value="ano">Ano</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn-secondary btnBuscar">Buscar</button>
+        <button class="btn btn-ghost btnMostrarTodos">Mostrar todos</button>
+      </section>
+
+      <!-- Lista -->
+      <section class="card" id="card-lista">
+        <h2 class="card-title">
+          <span class="card-title-icon">✦</span> Acervo
+          <span class="badge" id="contador">0</span>
+        </h2>
+        <ul class="livrosCadastrados"></ul>
+        <p class="empty-msg" id="empty-msg">Nenhum livro encontrado.</p>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-rule"></div>
+      <p>— Biblioteca —</p>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,297 @@
+/* ============================================================
+   VARIÁVEIS CSS (Custom Properties)
+   Definimos cores e estilos globais aqui para reutilizar
+   em todo o arquivo. Se quiser mudar a cor principal,
+   basta alterar o valor uma única vez aqui em cima!
+   ============================================================ */
+:root {
+  --cor-fundo: #0f0f13;
+  --cor-card: #1a1a24;
+  --cor-borda: #2a2a38;
+  --cor-acento: #e8ff47; /* Amarelo-limão vibrante */
+  --cor-acento-hover: #d4eb2e;
+  --cor-texto: #f0f0f5;
+  --cor-texto-suave: #8888a8;
+  --raio: 16px;
+  --fonte-titulo: "Syne", sans-serif;
+  --fonte-corpo: "DM Sans", sans-serif;
+}
+
+/* ============================================================
+   RESET E BASE
+   Remove estilos padrão do navegador que atrapalham o layout
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* O padding não aumenta o tamanho do elemento */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  min-height: 100vh; /* Ocupa pelo menos a altura inteira da tela */
+  padding: 40px 20px;
+}
+
+/* ============================================================
+   CONTAINER PRINCIPAL
+   Centraliza e limita a largura do conteúdo na tela
+   ============================================================ */
+.container {
+  max-width: 720px; /* Não fica largo demais em telas grandes */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  display: flex;
+  flex-direction: column;
+  gap: 28px; /* Espaço entre os blocos filhos */
+}
+
+/* ============================================================
+   CABEÇALHO
+   ============================================================ */
+.cabecalho {
+  display: flex;
+  justify-content: space-between; /* Título à esquerda, contador à direita */
+  align-items: flex-end;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  /* Efeito gradiente no texto */
+  background: linear-gradient(135deg, var(--cor-texto) 40%, var(--cor-acento));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitulo {
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+  margin-top: 6px;
+}
+
+/* Badge com o contador de usuários */
+.contador {
+  background-color: var(--cor-acento);
+  color: #0f0f13;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 6px 14px;
+  border-radius: 99px; /* Deixa o elemento com forma de pílula */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap; /* Não quebra em duas linhas */
+}
+
+/* ============================================================
+   CARD DO FORMULÁRIO
+   ============================================================ */
+.card-formulario {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 28px;
+}
+
+.form-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: var(--cor-texto-suave);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Os campos ficam lado a lado em telas maiores */
+.campos {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* 3 colunas com proporções diferentes */
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+/* Em telas pequenas (celular), empilha os campos */
+@media (max-width: 540px) {
+  .campos {
+    grid-template-columns: 1fr; /* Uma única coluna */
+  }
+}
+
+/* Agrupa o label com o input */
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo-grupo label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--cor-texto-suave);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Estilo dos campos de texto */
+.campo-grupo input {
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: var(--cor-texto);
+  font-family: var(--fonte-corpo);
+  font-size: 0.95rem;
+  /* transition: anima a mudança de borda suavemente */
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  width: 100%;
+}
+
+/* Remove a aparência padrão do navegador em inputs de número */
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Estilo quando o input está em foco (usuário clicou nele) */
+.campo-grupo input:focus {
+  outline: none; /* Remove a borda azul padrão do navegador */
+  border-color: var(--cor-acento);
+  box-shadow: 0 0 0 3px rgba(232, 255, 71, 0.12); /* Brilho sutil */
+}
+
+/* Cor do placeholder (texto de dica dentro do input) */
+.campo-grupo input::placeholder {
+  color: #444460;
+}
+
+/* ============================================================
+   BOTÃO
+   ============================================================ */
+.btn {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--cor-acento);
+  color: #0f0f13;
+  font-family: var(--fonte-titulo);
+  font-size: 1rem;
+  font-weight: 700;
+  border: none; /* Remove a borda padrão do botão */
+  border-radius: 10px;
+  cursor: pointer; /* Muda o cursor para mãozinha ao passar o mouse */
+  letter-spacing: 0.04em;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+}
+
+/* Hover = quando o mouse está sobre o elemento */
+.btn:hover {
+  background-color: var(--cor-acento-hover);
+}
+
+/* Active = quando o usuário está clicando */
+.btn:active {
+  transform: scale(0.98); /* Leve encolhimento para simular pressionar */
+}
+
+/* ============================================================
+   ÁREA DA LISTA DE USUÁRIOS
+   ============================================================ */
+.espaco-user {
+  position: relative;
+}
+
+/* Mensagem exibida quando não há usuários na lista */
+.mensagem-vazia {
+  text-align: center;
+  color: var(--cor-texto-suave);
+  padding: 40px;
+  border: 1px dashed var(--cor-borda);
+  border-radius: var(--raio);
+  font-size: 0.95rem;
+}
+
+/* A lista em si — remove os marcadores (bolinhas) padrão */
+.lista-usuarios {
+  list-style: none;
+  display: grid;
+  /* auto-fill cria quantas colunas couberem com no mínimo 200px */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+/* ============================================================
+   CARD DE CADA USUÁRIO
+   ============================================================ */
+.user {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* Animação de entrada: o card sobe suavemente ao aparecer */
+  animation: entrar 0.3s ease forwards;
+  /* Ao passar o mouse, sobe levemente */
+  transition:
+    transform 0.2s,
+    border-color 0.2s;
+}
+
+.user:hover {
+  transform: translateY(-4px);
+  border-color: var(--cor-acento);
+}
+
+/* Animação de keyframes: define "entrar" do zero ao estado final */
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cada linha de informação dentro do card */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Rótulo pequeno acima do valor (ex: "NOME") */
+.user-label {
+  font-size: 0.7rem;
+  color: var(--cor-texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Valor principal exibido */
+.user-valor {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--cor-texto);
+}
+
+/* Destaque visual para o nome do usuário */
+.user-nome .user-valor {
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--cor-acento);
+}

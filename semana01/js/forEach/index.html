@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Importando fontes do Google Fonts para um visual mais moderno -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Vinculando o arquivo de estilos CSS -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Lista de Usuários</title>
+  </head>
+  <body>
+
+    <!-- <main> é o conteúdo principal da página -->
+    <main class="container">
+
+      <!-- Cabeçalho com título e contador de usuários -->
+      <header class="cabecalho">
+        <div>
+          <h1 class="titulo">Usuários</h1>
+          <p class="subtitulo">Gerencie sua lista de pessoas</p>
+        </div>
+        <!-- Este span será atualizado pelo JavaScript para mostrar o total -->
+        <span class="contador" id="contador">0 pessoas</span>
+      </header>
+
+      <!-- Formulário de cadastro -->
+      <!-- Agrupamos os campos em uma "card" para organização visual -->
+      <div class="card-formulario">
+        <h2 class="form-titulo">Adicionar pessoa</h2>
+
+        <!-- Cada campo tem um <label> que descreve o que deve ser digitado -->
+        <div class="campos">
+          <div class="campo-grupo">
+            <label for="input-nome">Nome</label>
+            <!-- O atributo "id" conecta o input ao seu label -->
+            <input type="text" id="input-nome" placeholder="Ex: Maria Silva" class="input-nome" />
+          </div>
+
+          <div class="campo-grupo">
+            <label for="input-endereco">Endereço</label>
+            <input type="text" id="input-endereco" placeholder="Ex: Rua das Flores, 42" class="input-endereco" />
+          </div>
+
+          <div class="campo-grupo">
+            <label for="input-idade">Idade</label>
+            <input type="number" id="input-idade" placeholder="Ex: 28" class="input-idade" min="0" max="120" />
+          </div>
+        </div>
+
+        <!-- Botão que dispara a função de adicionar via JavaScript -->
+        <button class="btn">+ Adicionar</button>
+      </div>
+
+      <!-- Área onde os cards de usuário são renderizados dinamicamente -->
+      <section class="espaco-user">
+        <!-- Esta mensagem aparece quando a lista está vazia -->
+        <p class="mensagem-vazia" id="mensagem-vazia">Nenhuma pessoa cadastrada ainda.</p>
+        <!-- O JavaScript vai inserir os <li> dentro desta <ul> -->
+        <ul class="lista-usuarios"></ul>
+      </section>
+
+    </main>
+
+    <!-- O script fica no final do body para garantir que o HTML já foi carregado -->
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciador de Pacientes</title>
+
+    <!-- Toastr: biblioteca de notificações visuais (toast) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+    />
+
+    <!-- Folha de estilos do projeto -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+
+      <!-- ========== CABEÇALHO ========== -->
+      <!-- Ícone decorativo + título + subtítulo -->
+      <div class="cabecalho">
+        <div class="icone">🩺</div>
+        <h1 class="titulo">Gerenciador de Pacientes</h1>
+        <p class="subtitulo">Adicione, edite e remova pacientes com facilidade</p>
+      </div>
+
+      <!-- ========== CARD PRINCIPAL ========== -->
+      <!-- Agrupa o formulário e a lista dentro de um card visual -->
+      <div class="card">
+
+        <!-- Formulário de cadastro -->
+        <div class="form">
+          <!-- Input de texto para digitar o nome do paciente -->
+          <input
+            type="text"
+            class="meuInput"
+            placeholder="Nome do paciente..."
+            autocomplete="off"
+          />
+
+          <!-- Botão que aciona a função adicionarPaciente() -->
+          <button class="btn">+ Adicionar</button>
+        </div>
+
+        <!-- Separador visual com texto "Pacientes" (contador preenchido via JS) -->
+        <div class="separador" id="separador">Pacientes</div>
+
+        <!-- ========== LISTA DE PACIENTES ========== -->
+        <!-- Os itens <li> são inseridos aqui dinamicamente pelo script.js -->
+        <ul class="lista-pacientes"></ul>
+
+        <!-- ========== ESTADO VAZIO ========== -->
+        <!-- Mensagem exibida quando não há nenhum paciente na lista.
+             Ela é mostrada/ocultada pelo script.js conforme necessário. -->
+        <div class="estado-vazio" id="estadoVazio">
+          <span>📋</span>
+          Nenhum paciente cadastrado ainda.
+        </div>
+
+      </div><!-- /card -->
+    </div><!-- /container -->
+
+    <!-- ========== BIBLIOTECAS EXTERNAS ========== -->
+
+    <!-- SweetAlert2: modais bonitos para confirmações e inputs -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- jQuery: requisito do Toastr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Toastr: notificações de canto (success, warning, error, info) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <!-- Configuração global do Toastr -->
+    <script>
+      toastr.options = {
+        closeButton: true,      // Exibe botão "X" para fechar manualmente
+        progressBar: true,      // Barra de progresso visual até fechar
+        positionClass: "toast-top-right", // Exibe no canto superior direito
+        timeOut: "3000",        // Fecha automaticamente após 3 segundos
+      };
+    </script>
+
+    <!-- Lógica principal do projeto (carregada por último para garantir
+         que o DOM já está completamente construído) -->
+    <script src="./script.js"></script>
+  </body>
+</html>

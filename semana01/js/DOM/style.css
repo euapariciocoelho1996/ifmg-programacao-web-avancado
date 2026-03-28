@@ -1,0 +1,369 @@
+/* =============================================
+   VARIÁVEIS GLOBAIS
+   Define a paleta de cores, tipografia e
+   espaçamentos usados em todo o projeto.
+   ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600&display=swap');
+
+:root {
+  --cor-fundo: #f0f4f8;          /* Fundo geral da página */
+  --cor-card: #ffffff;            /* Fundo do card principal */
+  --cor-primaria: #1a6b5a;        /* Verde-escuro: cor de destaque principal */
+  --cor-primaria-hover: #145249;  /* Verde mais escuro para estado hover */
+  --cor-primaria-light: #e6f4f1;  /* Verde claro para fundos sutis */
+  --cor-aviso: #e8a020;           /* Amarelo para botão de editar */
+  --cor-aviso-hover: #c9881a;     /* Amarelo escuro para hover */
+  --cor-perigo: #c0392b;          /* Vermelho para botão de excluir */
+  --cor-perigo-hover: #a93226;    /* Vermelho escuro para hover */
+  --cor-texto: #1e293b;           /* Texto principal */
+  --cor-texto-fraco: #64748b;     /* Texto secundário / placeholder */
+  --cor-borda: #d1dbe8;           /* Borda padrão dos elementos */
+  --raio: 12px;                   /* Border-radius padrão */
+  --sombra: 0 4px 24px rgba(0,0,0,0.07); /* Sombra suave dos cards */
+  --transicao: 0.22s ease;        /* Duração padrão das animações */
+}
+
+/* =============================================
+   RESET E BASE
+   Remove estilos padrão do navegador e
+   define a base da tipografia.
+   ============================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  min-height: 100vh;
+
+  /* Centraliza o conteúdo vertical e horizontalmente */
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px;
+}
+
+/* =============================================
+   CONTAINER PRINCIPAL
+   Limita a largura da página e centraliza.
+   ============================================= */
+.container {
+  width: 100%;
+  max-width: 560px;
+}
+
+/* =============================================
+   CABEÇALHO
+   Ícone + título + subtítulo no topo.
+   ============================================= */
+.cabecalho {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+/* Ícone decorativo acima do título */
+.cabecalho .icone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: var(--cor-primaria);
+  border-radius: 16px;
+  margin-bottom: 16px;
+  font-size: 26px;
+
+  /* Animação de entrada ao carregar a página */
+  animation: surgir 0.5s ease both;
+}
+
+/* Título principal com fonte display */
+.titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--cor-texto);
+  letter-spacing: -0.5px;
+  animation: surgir 0.55s ease both;
+}
+
+/* Subtítulo descritivo abaixo do título */
+.subtitulo {
+  font-size: 0.9rem;
+  color: var(--cor-texto-fraco);
+  margin-top: 6px;
+  animation: surgir 0.6s ease both;
+}
+
+/* =============================================
+   CARD
+   Wrapper branco com sombra que envolve
+   o formulário e a lista de pacientes.
+   ============================================= */
+.card {
+  background: var(--cor-card);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 28px;
+  border: 1px solid var(--cor-borda);
+  animation: surgir 0.65s ease both;
+}
+
+/* =============================================
+   FORMULÁRIO DE ADIÇÃO
+   Campo de texto + botão lado a lado.
+   ============================================= */
+.form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+/* Campo de texto do nome do paciente */
+.meuInput {
+  flex: 1;             /* Ocupa todo o espaço disponível */
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  border: 1.5px solid var(--cor-borda);
+  border-radius: 8px;
+  outline: none;
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+}
+
+/* Estado de foco do input: destaca a borda */
+.meuInput:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(26, 107, 90, 0.12);
+  background: #fff;
+}
+
+/* Botão principal de adicionar paciente */
+.btn {
+  padding: 12px 20px;
+  background: var(--cor-primaria);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--transicao), transform var(--transicao);
+}
+
+.btn:hover {
+  background: var(--cor-primaria-hover);
+  transform: translateY(-1px); /* Leve elevação no hover */
+}
+
+.btn:active {
+  transform: translateY(0); /* Remove elevação ao clicar */
+}
+
+/* =============================================
+   SEPARADOR COM CONTADOR
+   Linha divisória + texto indicando
+   quantos pacientes estão na lista.
+   ============================================= */
+.separador {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--cor-texto-fraco);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Linhas horizontais do separador */
+.separador::before,
+.separador::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--cor-borda);
+}
+
+/* =============================================
+   LISTA DE PACIENTES
+   Remove os estilos padrão de lista (ul).
+   ============================================= */
+.lista-pacientes {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* =============================================
+   ITEM DE PACIENTE
+   Cada linha da lista com nome + botões.
+   ============================================= */
+.paciente-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+
+  /* Animação de entrada ao ser adicionado */
+  animation: entrar 0.3s ease both;
+}
+
+/* Destaque ao passar o mouse sobre o item */
+.paciente-item:hover {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 2px 12px rgba(26, 107, 90, 0.08);
+}
+
+/* Numeração do item (exibida via CSS counter) */
+.paciente-item::before {
+  counter-increment: lista-contador;
+  content: counter(lista-contador, decimal-leading-zero);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  background: var(--cor-primaria-light);
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+/* Ativa o counter na lista */
+.lista-pacientes {
+  counter-reset: lista-contador;
+}
+
+/* Nome do paciente */
+.nome {
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--cor-texto);
+}
+
+/* =============================================
+   BOTÕES DE AÇÃO (Editar / Excluir)
+   ============================================= */
+.acoes {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* Estilos compartilhados entre os dois botões */
+.btn-editar,
+.btn-excluir {
+  padding: 6px 12px;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background var(--transicao), transform var(--transicao);
+}
+
+/* Botão editar: tom amarelo/âmbar */
+.btn-editar {
+  background: #fef3cd;
+  color: var(--cor-aviso);
+}
+
+.btn-editar:hover {
+  background: var(--cor-aviso);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Botão excluir: tom vermelho */
+.btn-excluir {
+  background: #fde8e6;
+  color: var(--cor-perigo);
+}
+
+.btn-excluir:hover {
+  background: var(--cor-perigo);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* =============================================
+   ESTADO VAZIO
+   Mensagem exibida quando a lista está vazia.
+   ============================================= */
+.estado-vazio {
+  text-align: center;
+  padding: 24px 0 8px;
+  color: var(--cor-texto-fraco);
+  font-size: 0.9rem;
+}
+
+.estado-vazio span {
+  display: block;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+/* =============================================
+   ANIMAÇÕES
+   ============================================= */
+
+/* Fade + slide de baixo para cima */
+@keyframes surgir {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Entrada lateral dos itens da lista */
+@keyframes entrar {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =============================================
+   RESPONSIVIDADE
+   Ajustes para telas pequenas (< 400px).
+   ============================================= */
+@media (max-width: 400px) {
+  .form {
+    flex-direction: column; /* Empilha input e botão verticalmente */
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .btn-editar,
+  .btn-excluir {
+    padding: 6px 8px;
+    font-size: 0.75rem;
+  }
+}
