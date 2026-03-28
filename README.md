@@ -1,6 +1,6 @@
-# Semana 1 de Estudos: Fundamentos de Front-End (HTML & JavaScript)
-
 ![Status](https://img.shields.io/badge/status-em%20andamento-yellow)
+
+# Semana 1 de Estudos: Fundamentos de Front-End (HTML & JavaScript)
 
 Este repositório documenta os estudos e práticas de semanas focadas nos fundamentos do desenvolvimento web, abrangendo a estruturação de páginas com HTML5 e a introdução à lógica de programação e manipulação de interfaces utilizando JavaScript.
 
